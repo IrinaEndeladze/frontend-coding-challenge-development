@@ -1,7 +1,5 @@
-import './css/style.css';
-
 import React from 'react';
-import { Providers } from '@/providers';
+import { Providers } from 'components/ui/providers';
 import type { AppProps } from 'next/app';
 import { Inter } from 'next/font/google';
 
@@ -11,16 +9,12 @@ const inter = Inter({
   display: 'swap',
 });
 
-function MainApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div className={`${inter.variable} font-inter antialiased bg-slate-100 text-slate-600`}>
       <React.StrictMode>
-        <Providers>
-          <Component {...pageProps} />
-        </Providers>
+        <Component {...pageProps} />
       </React.StrictMode>
     </div>
   );
 }
-
-export default MainApp;

@@ -1,4 +1,6 @@
-import { BarChart } from '../components/Chart';
+'use client';
+import React from 'react';
+import { BarChart } from '../../Chart';
 import { useToastContext } from '../providers/toast';
 import { useEffect, useMemo, useState } from 'react';
 
@@ -18,6 +20,7 @@ interface Filter {
 
 export function ChartBlock({ data, message, status }: barChartProps) {
   const { renderToast } = useToastContext();
+
   const [filtered, setFiltered] = useState<Filter>({ min: '', max: '' });
 
   const { min, max } = filtered;
@@ -28,7 +31,6 @@ export function ChartBlock({ data, message, status }: barChartProps) {
       [name]: value,
     }));
   };
-
   const filteredData = useMemo(() => {
     const minValue = filtered.min !== '' ? parseFloat(min.toString()) : -Infinity;
     const maxValue = filtered.max !== '' ? parseFloat(max.toString()) : Infinity;
@@ -42,15 +44,15 @@ export function ChartBlock({ data, message, status }: barChartProps) {
   useEffect(() => {
     if (status === 'error') {
       renderToast(status, message);
-    } else if (data) {
-      renderToast('success', message);
+    } else if (status === 'success') {
+      renderToast(status, message);
     }
-  }, [status, message, data, renderToast]);
+  }, [status]);
 
   return (
-    <div>
+    <>
       <div className='mb-12 flex items-center'>
-        <div className='flex flex-col mx-4'>
+        <div className='flex flex-col mx-4 '>
           <span className='text-sm'>Min</span>
           <input
             type='number'
@@ -97,6 +99,6 @@ export function ChartBlock({ data, message, status }: barChartProps) {
           }}
         />
       </div>
-    </div>
+    </>
   );
 }

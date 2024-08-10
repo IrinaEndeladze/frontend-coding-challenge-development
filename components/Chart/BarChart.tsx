@@ -5,6 +5,7 @@ import { Chart, BarController, BarElement, LinearScale, TimeScale, Tooltip, Lege
 import type { ChartData } from 'chart.js';
 import 'chartjs-adapter-moment';
 import { chartColors } from './chartjs-config';
+import React from 'react';
 
 Chart.register(BarController, BarElement, LinearScale, TimeScale, Tooltip, Legend, CategoryScale);
 
