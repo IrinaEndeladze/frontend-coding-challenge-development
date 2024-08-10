@@ -1,6 +1,5 @@
 import { ChartBlock } from '@/page_blocks/ChartBlock';
 import { Providers } from '@/providers';
-
 import getBarChartData from 'services/fetchBarChartData';
 
 export default async function Home() {
