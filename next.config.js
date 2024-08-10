@@ -4,6 +4,9 @@ const nextConfig = {
     dirs: [],
   },
   distDir: 'dist',
+  env: {
+    baseUrl: 'http://localhost:3001',
+  },
 };
 
 module.exports = nextConfig;

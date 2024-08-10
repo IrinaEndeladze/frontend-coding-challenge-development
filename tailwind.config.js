@@ -15,6 +15,10 @@ module.exports = {
       outline: {
         blue: '2px solid rgba(0, 112, 244, 0.5)',
       },
+      colors: {
+        bg_geen: 'rgba(35, 173, 97, 1)',
+        bg_red: 'rgba(239, 53, 125, 1)',
+      },
       fontFamily: {
         inter: ['var(--font-inter)', 'sans-serif'],
       },
