@@ -1,7 +1,9 @@
 const getBarChartData = async () => {
   try {
     const res = await fetch(`${process.env.baseUrl}/api/data/chart-data`, {
-      // Uncomment if needed for caching behavior
+      //  use no-store, because every time user get fresh data,
+      // this is a chart and maybe in production chart's data update frequently.
+
       cache: 'no-store',
       // next: { revalidate: 10 }, // Uncomment for ISR or revalidation
     });

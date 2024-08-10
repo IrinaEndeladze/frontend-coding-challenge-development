@@ -21,6 +21,12 @@ interface Filter {
 export function ChartBlock({ data, message, status }: barChartProps) {
   const { renderToast } = useToastContext();
 
+  //  I don't use useContext for toast messages. use library for this.
+  //  in this case when try to remove toast message ,
+  //  it causes re-render my chart, beacause ChartBlock subscribes to context, when any of the state in that context is changed,
+  // react re render ChartBlock.
+  // context is good for reading values but not so great when updating values due to the re-rendering.
+
   const [filtered, setFiltered] = useState<Filter>({ min: '', max: '' });
 
   const { min, max } = filtered;
